@@ -95,6 +95,12 @@ def root():
     }
 
 
+@app.get("/health")
+def health():
+    """Health check endpoint."""
+    return {"status": "ok"}
+
+
 @app.post("/append_to_doc")
 def handle_append_to_doc(request: AppendDocRequest, _auth=Depends(verify_api_key)):
     """
